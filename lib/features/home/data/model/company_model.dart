@@ -74,19 +74,20 @@ class CompanyModel {
   final String? facebookUrl;
   final String? whatsappUrl;
   final bool? isActive;
+  final bool? isFavourite;
   final double? averageRating;
   final int? countReviews;
   final List<dynamic>? reviews;
   final String? createdAt;
   final String? updatedAt;
 
-  // ✨ الجديد: coverage في تفاصيل الشركة
   final Map<String, Coverage>? coverage;
 
   CompanyModel({
     this.id,
     this.name,
     this.address,
+    this.isFavourite,
     this.phone,
     this.email,
     this.description,
@@ -114,6 +115,7 @@ class CompanyModel {
       facebookUrl: json['facebook_url'] as String?,
       whatsappUrl: json['whatsapp_url'] as String?,
       isActive: json['is_active'] as bool?,
+      isFavourite: json['is_favourite'] as bool?,
       averageRating: (json['average_rating'] as num?)?.toDouble(),
       countReviews: json['count_reviews'] as int?,
       reviews: json['reviews'] as List<dynamic>?,

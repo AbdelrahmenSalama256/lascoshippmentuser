@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lasco/core/component/custom_loading_indicator.dart';
 import 'package:lasco/core/constants/app_colors.dart';
 import 'package:lasco/core/locale/app_loacl.dart';
 
@@ -12,6 +13,7 @@ class CompanyCard extends StatelessWidget {
   final String? imageUrl;
   final VoidCallback? onFavPressed;
   final bool isFav;
+  final bool isLoading;
   final String? rate;
   final VoidCallback? onViewPressed;
 
@@ -23,6 +25,7 @@ class CompanyCard extends StatelessWidget {
     this.isFav = false,
     this.rate,
     this.imageUrl,
+    this.isLoading = false,
     this.onViewPressed,
   });
 
@@ -113,13 +116,15 @@ class CompanyCard extends StatelessWidget {
                           ],
                         ),
                         child: IconButton(
-                          icon: SvgPicture.asset(
-                            isFav
-                                ? "assets/images/svg/heart-fill.svg"
-                                : "assets/images/svg/heart.svg",
-                            color: AppColors.orange,
-                            width: 20.w,
-                          ),
+                          icon: isLoading
+                              ? CustomLoadingIndicator()
+                              : SvgPicture.asset(
+                                  isFav
+                                      ? "assets/images/svg/heart-fill.svg"
+                                      : "assets/images/svg/heart.svg",
+                                  color: AppColors.orange,
+                                  width: 20.w,
+                                ),
                           onPressed: onFavPressed ?? () {},
                         ),
                       ),

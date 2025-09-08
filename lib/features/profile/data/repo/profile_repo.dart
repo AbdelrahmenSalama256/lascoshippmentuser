@@ -73,12 +73,10 @@ class ProfileRepo {
         '_method': 'PUT',
       });
 
-      // Add password only if valid
       if (password != null && password.isNotEmpty && password.length >= 8) {
         formData.fields.add(MapEntry('password', password));
       }
 
-      // Add image as 'files' (single file, but API expects array format)
       if (image != null) {
         formData.files.add(MapEntry(
           'image',
@@ -92,7 +90,6 @@ class ProfileRepo {
       PrintUtil.debug('FormData fields: ${formData.fields}');
       PrintUtil.debug('FormData files: ${formData.files}');
 
-      // Now use ApiConsumer - it handles FormData correctly
       final response = await api.post(
         EndPoints.updateProfile,
         data: formData, // FormData directly
@@ -141,7 +138,6 @@ class ProfileRepo {
   }
 
   //! Register
-// In ProfileRepo - add these methods
   Future<Either<String, ResponseModel>> sendEmailVerificationOtp({
     required String email,
   }) async {

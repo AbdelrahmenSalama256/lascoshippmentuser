@@ -29,6 +29,10 @@ class EndPoints {
 
   //! home
   static const String shipmentCompanies = "${baseUrl}api/v1/shipment-companies";
+
+  // ! Favorite
+  static const String getFavorites = "${baseUrl}api/v1/favourites";
+  static const String toggleFavorite = "${baseUrl}api/v1/favourites/toggle";
 }
 
 class ApiKey {

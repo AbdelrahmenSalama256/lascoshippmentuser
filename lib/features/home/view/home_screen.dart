@@ -177,11 +177,11 @@ class HomeScreen extends StatelessWidget {
   Widget _buildErrorWidget(String message, BuildContext context) {
     return Column(
       children: [
-        Text(
-          message,
-          style: TextStyle(color: Colors.red, fontSize: 14.sp),
-        ),
-        SizedBox(height: 10.h),
+        // Text(
+        //   message,
+        //   style: TextStyle(color: Colors.red, fontSize: 14.sp),
+        // ),
+        // SizedBox(height: 10.h),
         AppButton(
           text: "retry".tr(context),
           backgroundColor: AppColors.orange,
